@@ -1,0 +1,5 @@
+com\shawn\core\base\Result.class
+com\shawn\core\base\enums\UserTypes.class
+com\shawn\core\base\Results.class
+com\shawn\core\base\enums\codes\ErrorCode.class
+com\shawn\core\base\enums\codes\BaseCode.class

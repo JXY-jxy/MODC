@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.shawn.manager.dao.ClientMapper">
+
+    <!--添加客户-->
+    <insert id="addClient" parameterType="com.shawn.manager.pojo.Client">
+      insert into client (clientId, clientName, clientSex, clientIdCard,clientTel,clientEmail,clientState)
+      values (#{clientId},#{clientName},#{clientSex},#{clientIdCard},#{clientTel},#{clientEmail},#{clientState});
+    </insert>
+
+    <!--    根据Id删除客户-->
+    <delete id="deleteClientById" parameterType="String">
+    delete from client where clientId=#{clientId}
+    </delete>
+
+    <!--    将状态更新为1违约-->
+    <update id="updateClientStateToDefalut" parameterType="com.shawn.manager.pojo.Client">
+    update client set clientState=1
+    where clientId=#{clientId};
+    </update>
+
+    <!--    将状态更新为2重生-->
+    <update id="updateClientStateToReBirth" parameterType="com.shawn.manager.pojo.Client">
+    update client set clientState=2
+    where clientId=#{clientId};
+    </update>
+
+
+    <!--    根据多重条件查询客户-->
+<!--    s时间范围还未实现-->
+    <select id="queryClient" resultType="com.shawn.manager.pojo.Client">
+            select * from client
+            <where>
+                1=1
+                <if test="clientId!=null and clientId!=''">and clientId = #{clientId} </if>
+                <if test="clientName!=null and clientName!=''"> and clientName = #{clientName}</if>
+                <if test="clientSex!=null and clientSex!=''"> and clientSex = #{clientSex}</if>
+                <if test="clientIdCard!=null and clientIdCard!=''"> and clientIdCard = #{clientIdCard}</if>
+                <if test="clientTel!=null and clientTel!=''"> and clientTel = #{clientTel}</if>
+                <if test="clientEmail!=null and clientEmail!=''"> and clientEmail = #{clientEmail}</if>
+                <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(clientCreated) BETWEEN #{startTime} AND #{endTime}</if>
+                <if test="clientState!=null and clientState!=''"> and clientState = #{clientState}</if>
+
+
+            </where>
+    </select>
+
+    <!--    查询所有客户-->
+    <select id="queryAllClient" resultType="com.shawn.manager.pojo.Client">
+    select * from client
+    </select>
+
+</mapper>
+

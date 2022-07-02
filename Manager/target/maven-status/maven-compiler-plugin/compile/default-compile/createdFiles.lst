@@ -1,0 +1,13 @@
+com\shawn\manager\dao\IdentifiedmanMapper.class
+com\shawn\manager\dao\ClientMapper.class
+com\shawn\manager\pojo\Sponsor.class
+com\shawn\manager\dao\SponsorMapper.class
+com\shawn\manager\service\ClientService.class
+com\shawn\manager\dao\ReviewerMapper.class
+com\shawn\manager\pojo\Reviewer.class
+com\shawn\manager\pojo\Identifiedman.class
+com\shawn\manager\service\impl\ClientServiceImpl.class
+com\shawn\manager\util\Service.class
+com\shawn\manager\pojo\Client.class
+com\shawn\manager\controller\ClientController.class
+com\shawn\manager\ManagerApplication.class
