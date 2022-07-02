@@ -24,7 +24,6 @@ public class ManagerApplication {
 
         new SpringApplicationBuilder(ManagerApplication.class).properties("server.port="+port)
                 .properties("spring.profiles.active="+args[1]).run(args);
-//        SpringApplication.run(ManagerApplication.class,args);
 
     }
 }
