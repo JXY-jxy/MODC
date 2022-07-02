@@ -28,7 +28,6 @@
 
 
     <!--    根据多重条件查询客户-->
-<!--    s时间范围还未实现-->
     <select id="queryClient" resultType="com.shawn.manager.pojo.Client">
             select * from client
             <where>
@@ -41,8 +40,6 @@
                 <if test="clientEmail!=null and clientEmail!=''"> and clientEmail = #{clientEmail}</if>
                 <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(clientCreated) BETWEEN #{startTime} AND #{endTime}</if>
                 <if test="clientState!=null and clientState!=''"> and clientState = #{clientState}</if>
-
-
             </where>
     </select>
 

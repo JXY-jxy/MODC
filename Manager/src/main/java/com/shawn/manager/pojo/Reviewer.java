@@ -3,6 +3,8 @@ package com.shawn.manager.pojo;
 import cn.hutool.core.date.DateTime;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 //审核员
 public class Reviewer {
@@ -13,5 +15,5 @@ public class Reviewer {
     private String reviewerTel;
     private String reviewerEmail;
     private String reviewerSector;//部门
-    private DateTime reviewerCreated;
+    private Date reviewerCreated;
 }

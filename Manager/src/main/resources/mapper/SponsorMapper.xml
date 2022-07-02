@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.shawn.manager.dao.SponsorMapper">
+
+    <!--添加客户-->
+    <insert id="addSponsor" parameterType="com.shawn.manager.pojo.Sponsor">
+      insert into sponsor (sponsorId, sponsorName, sponsorSex, sponsorIdCard,sponsorTel,sponsorEmail)
+      values (#{sponsorId},#{sponsorName},#{sponsorSex},#{sponsorIdCard},#{sponsorTel},#{sponsorEmail});
+    </insert>
+
+    <!--    根据Id删除客户-->
+    <delete id="deleteSponsorById" parameterType="String">
+    delete from sponsor where sponsorId=#{sponsorId}
+    </delete>
+
+    <!--    根据多重条件查询客户-->
+    <select id="querySponsor" resultType="com.shawn.manager.pojo.Sponsor">
+            select * from sponsor
+            <where>
+                1=1
+                <if test="sponsorId!=null and sponsorId!=''">and sponsorId = #{sponsorId} </if>
+                <if test="sponsorName!=null and sponsorName!=''"> and sponsorName = #{sponsorName}</if>
+                <if test="sponsorSex!=null and sponsorSex!=''"> and sponsorSex = #{sponsorSex}</if>
+                <if test="sponsorIdCard!=null and sponsorIdCard!=''"> and sponsorIdCard = #{sponsorIdCard}</if>
+                <if test="sponsorTel!=null and sponsorTel!=''"> and sponsorTel = #{sponsorTel}</if>
+                <if test="sponsorEmail!=null and sponsorEmail!=''"> and sponsorEmail = #{sponsorEmail}</if>
+                <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(sponsorCreated) BETWEEN #{startTime} AND #{endTime}</if>
+            </where>
+    </select>
+
+    <!--    查询所有客户-->
+    <select id="queryAllSponsor" resultType="com.shawn.manager.pojo.Sponsor">
+    select * from sponsor
+    </select>
+
+</mapper>
+

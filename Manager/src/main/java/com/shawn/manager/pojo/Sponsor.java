@@ -3,8 +3,10 @@ package com.shawn.manager.pojo;
 import cn.hutool.core.date.DateTime;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
-//重生发起人
+//申请发起人
 public class Sponsor {
     private String sponsorId;
     private String sponsorName;
@@ -12,5 +14,5 @@ public class Sponsor {
     private String sponsorIdCard;
     private String sponsorTel;
     private String sponsorEmail;
-    private DateTime sponsorCreated;
+    private Date sponsorCreated;
 }
