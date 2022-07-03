@@ -34,5 +34,10 @@
     select * from sponsor
     </select>
 
+    <!--    查询输入账号的密码是否正确，对于客户登录-->
+    <select id="loginSponsor" resultType="com.shawn.manager.pojo.Sponsor">
+    select * from sponsor where sponsorTel = #{sponsorTel} and sponsorPwd = #{sponsorPwd}
+    </select>
+
 </mapper>
 

@@ -11,7 +11,7 @@ public enum ErrorCode {
     ACCOUNTORPASSWORDERR(-3,"账号或密码错误"),
     SELECTERR(-2,"查询失败"),
     UNKNOWN(-1,"未知错误"),
-    SUCCESS(0,"成功");
+    SUCCESS(200,"成功");
     ;
     private int code;
     private String description;

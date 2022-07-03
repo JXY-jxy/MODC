@@ -27,7 +27,7 @@ public enum BaseCode {
     UNAUTHORIZED(-3,"未授权"),
     REQUEST_PARAM_ERROR(-2,"请求参数错误"),
     UNKNOWN(-1,"未知错误"),
-    SUCCESS(0,"成功")
+    SUCCESS(200,"成功")
     ;
 
     private int code;

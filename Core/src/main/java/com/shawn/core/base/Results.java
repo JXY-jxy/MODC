@@ -12,7 +12,7 @@ public class Results {
     }
 
     public static <T> Result<T> newSuccessResult(T data){
-        return newResult(data,"success",0,true);
+        return newResult(data,"success",200,true);
     }
 
     public static <T> Result<T> newResult(T data, String message, int code, boolean success){

@@ -26,4 +26,8 @@ public interface SponsorMapper {
     //查询所有客户
     List<Sponsor> queryAllSponsor();
 
+    //申请发起人登录
+    Sponsor loginSponsor(@Param("sponsorTel") String sponsorTel,@Param("sponsorPwd") String sponsorPwd);
+
+
 }

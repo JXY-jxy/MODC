@@ -60,6 +60,13 @@ public class ReviewerController {
         return Results.newSuccessResult(result);
     }
 
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public Result<Boolean> loginReviewer( @RequestParam(value = "reviewerTel") String reviewerTel,
+                                  @RequestParam(value = "reviewerPwd")String reviewerPwd){
+        boolean result = reviewerService.login(reviewerTel,reviewerPwd);
+        return Results.newSuccessResult(result);
+    }
+
 
 
 }

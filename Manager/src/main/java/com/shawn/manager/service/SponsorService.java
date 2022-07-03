@@ -16,4 +16,8 @@ public interface SponsorService {
 
     //查询所有客户
     List<Sponsor> queryAllSponsor();
+
+    //登录
+    Sponsor loginSponsor(String sponsorTel,String sponsorPwd);
+
 }
