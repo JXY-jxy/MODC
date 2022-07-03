@@ -59,6 +59,11 @@ public class SponsorController {
         return Results.newSuccessResult(result);
     }
 
-
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public Result<Sponsor> loginSponsor( @RequestParam(value = "sponsorTel") String sponsorTel,
+                                  @RequestParam(value = "sponsorPwd")String sponsorPwd){
+        Sponsor result = sponsorService.loginSponsor(sponsorTel,sponsorPwd);
+        return Results.newSuccessResult(result);
+    }
 
 }

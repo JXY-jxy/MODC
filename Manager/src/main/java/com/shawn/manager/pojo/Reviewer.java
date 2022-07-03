@@ -13,6 +13,7 @@ public class Reviewer {
     private String reviewerSex;
     private String reviewerIdCard;
     private String reviewerTel;
+    private String reviewerPwd;
     private String reviewerEmail;
     private Date reviewerCreated;
 }

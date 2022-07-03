@@ -34,4 +34,10 @@ public class ReviewerServiceImpl implements ReviewerService {
     public List<Reviewer> queryAllReviewer() {
         return reviewerMapper.queryAllReviewer();
     }
+
+    @Override
+    public boolean login(String reviewerTel,String reviewerPwd) {
+        return reviewerMapper.login(reviewerTel,reviewerPwd);
+
+    }
 }

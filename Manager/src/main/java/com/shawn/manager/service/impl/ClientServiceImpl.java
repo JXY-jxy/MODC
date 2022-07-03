@@ -18,15 +18,6 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public boolean addClient(String clientId,String clientName,String clientSex,String clientIdCard,String clientTel,String clientEmail,int clientState) {
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("clientId",clientId);
-//        jsonObject.put("clientName",clientName);
-//        jsonObject.put("clientSex",clientSex);
-//        jsonObject.put("clientIdCard",clientIdCard);
-//        jsonObject.put("clientTel",clientTel);
-//        jsonObject.put("clientEmail",clientEmail);
-//        jsonObject.put("clientState",clientState);
-
         return clientMapper.addClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState);
     }
 

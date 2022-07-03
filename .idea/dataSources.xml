@@ -10,5 +10,14 @@
         <property name="serverTimezone" value="GMT" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="management_of_defaulting_customers@localhost [2]" uuid="ee7c3362-d865-4aa3-84b5-212395f46685">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/management_of_defaulting_customers</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>

@@ -33,4 +33,9 @@ public class SponsorServiceImpl implements SponsorService {
     public List<Sponsor> queryAllSponsor() {
         return sponsorMapper.queryAllSponsor();
     }
+
+    @Override
+    public Sponsor loginSponsor(String sponsorTel,String sponsorPwd) {
+        return sponsorMapper.loginSponsor(sponsorTel,sponsorPwd);
+    }
 }

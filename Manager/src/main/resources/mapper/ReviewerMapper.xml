@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.shawn.manager.dao.ReviewerMapper">
+
+    <!--添加客户-->
+    <insert id="addReviewer" parameterType="com.shawn.manager.pojo.Reviewer">
+      insert into reviewer (reviewerId, reviewerName, reviewerSex, reviewerIdCard,reviewerTel,reviewerEmail)
+      values (#{reviewerId},#{reviewerName},#{reviewerSex},#{reviewerIdCard},#{reviewerTel},#{reviewerEmail});
+    </insert>
+
+    <!--    根据Id删除客户-->
+    <delete id="deleteReviewerById" parameterType="String">
+    delete from reviewer where reviewerId=#{reviewerId}
+    </delete>
+
+    <!--    根据多重条件查询客户-->
+    <select id="queryReviewer" resultType="com.shawn.manager.pojo.Reviewer">
+            select * from reviewer
+            <where>
+                1=1
+                <if test="reviewerId!=null and reviewerId!=''">and reviewerId = #{reviewerId} </if>
+                <if test="reviewerName!=null and reviewerName!=''"> and reviewerName = #{reviewerName}</if>
+                <if test="reviewerSex!=null and reviewerSex!=''"> and reviewerSex = #{reviewerSex}</if>
+                <if test="reviewerIdCard!=null and reviewerIdCard!=''"> and reviewerIdCard = #{reviewerIdCard}</if>
+                <if test="reviewerTel!=null and reviewerTel!=''"> and reviewerTel = #{reviewerTel}</if>
+                <if test="reviewerEmail!=null and reviewerEmail!=''"> and reviewerEmail = #{reviewerEmail}</if>
+                <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(reviewerCreated) BETWEEN #{startTime} AND #{endTime}</if>
+            </where>
+    </select>
+
+    <!--    查询所有客户-->
+    <select id="queryAllReviewer" resultType="com.shawn.manager.pojo.Reviewer">
+    select * from reviewer
+    </select>
+
+    <!--    查询输入账号的密码是否正确，对于客户登录-->
+    <select id="loginReviewer" resultType="com.shawn.manager.pojo.Reviewer">
+    select * from reviewer where reviewerTel = #{reviewerTel} and reviewerPwd = #{reviewerPwd}
+    </select>
+
+
+</mapper>
+

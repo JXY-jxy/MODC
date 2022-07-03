@@ -13,6 +13,7 @@ public class Sponsor {
     private String sponsorSex;
     private String sponsorIdCard;
     private String sponsorTel;
+    private String sponsorPwd;
     private String sponsorEmail;
     private Date sponsorCreated;
 }
