@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.shawn.manager.dao.DefaultMapper">
+
+    <!--添加客户-->
+    <insert id="addDefault" parameterType="com.shawn.manager.pojo.Default">
+      insert into default (defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+                           defaultRemark,defaultRete,defaultNotch,defaultCancel,defaultDelay,
+                           defaultRelate,defaultSubstitute,defaultBankrupt)
+      values (#{defaultId},#{clientId},#{clientName},#{sponsorId},#{sponsorName},#{defaultState},#{defaultRemark},
+              #{defaultRete},#{defaultNotch},#{defaultCancel},#{defaultDelay},#{defaultRelate},
+              #{defaultSubstitute},#{defaultBankrupt});
+    </insert>
+
+    <!--    根据Id删除客户-->
+    <delete id="deleteDefaultById" parameterType="String">
+    delete from default where defaultId=#{defaultId}
+    </delete>
+
+    <!--    根据多重条件查询客户-->
+    <select id="queryDefault" resultType="com.shawn.manager.pojo.Default">
+            select * from default
+            <where>
+                1=1
+                <if test="defaultId!=null and defaultId!=''">and defaultId = #{defaultId} </if>
+                <if test="defaultName!=null and defaultName!=''"> and defaultName = #{defaultName}</if>
+                <if test="defaultSex!=null and defaultSex!=''"> and defaultSex = #{defaultSex}</if>
+                <if test="defaultIdCard!=null and defaultIdCard!=''"> and defaultIdCard = #{defaultIdCard}</if>
+                <if test="defaultTel!=null and defaultTel!=''"> and defaultTel = #{defaultTel}</if>
+                <if test="defaultEmail!=null and defaultEmail!=''"> and defaultEmail = #{defaultEmail}</if>
+                <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(defaultCreated) BETWEEN #{startTime} AND #{endTime}</if>
+            </where>
+    </select>
+
+    <!--    查询所有客户-->
+    <select id="queryAllDefault" resultType="com.shawn.manager.pojo.Default">
+    select * from default
+    </select>
+
+</mapper>
+
