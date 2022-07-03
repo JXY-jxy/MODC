@@ -14,6 +14,5 @@ public class Reviewer {
     private String reviewerIdCard;
     private String reviewerTel;
     private String reviewerEmail;
-    private String reviewerSector;//部门
     private Date reviewerCreated;
 }
