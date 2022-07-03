@@ -11,23 +11,29 @@ import java.util.List;
 @Mapper
 public interface DefaultMapper {
 
-    //添加客户
+    //添加违约情况
     boolean addDefault(@Param("defaultId")String defaultId, @Param("clientId")String clientId, @Param("clientName")String clientName,
                        @Param("sponsorId")String sponsorId, @Param("sponsorName")String sponsorName, @Param("defaultState")int defaultState,
-                       @Param("defaultRemark")String defaultRemark, @Param("defaultRete")int defaultRete, @Param("defaultNotch")int defaultNotch,
+                       @Param("defaultRemark")String defaultRemark, @Param("defaultSeverity")int defaultSeverity, @Param("defaultNotch")int defaultNotch,
                        @Param("defaultCancel")int defaultCancel, @Param("defaultDelay")int defaultDelay,
                        @Param("defaultRelate")int defaultRelate, @Param("defaultSubstitute")int defaultSubstitute,
-                       @Param("defaultBankrupt")int defaultBankrupt);
+                       @Param("defaultBankrupt")int defaultBankrupt, @Param("defaultExternal")int defaultExternal);
 
-    //根据Id删除客户
-    boolean deleteDefaultById(@Param("defaultId") String defaultId);
+    //更新审核状态 0不违约 1违约
+    boolean updateDefalutStateToPass(@Param("defaultId") String defaultId);
 
-    //根据多重条件查询客户
-    List<Default> queryDefault(@Param("defaultId")String defaultId, @Param("defaultName")String defaultName, @Param("defaultSex")String defaultSex,
-                               @Param("defaultIdCard")String defaultIdCard, @Param("defaultTel") String defaultTel, @Param("defaultEmail")String defaultEmail,
-                               @Param("startTime")String startTime, @Param("endTime") String endTime);
+    boolean updateDefalutStateToFail(@Param("defaultId") String defaultId);
 
-    //查询所有客户
+    //根据多重条件查询违约情况
+    List<Default> queryDefault(@Param("defaultId")String defaultId, @Param("clientId")String clientId, @Param("clientName")String clientName,
+                               @Param("sponsorId")String sponsorId, @Param("sponsorName")String sponsorName, @Param("defaultState")int defaultState,
+                               @Param("defaultRemark")String defaultRemark, @Param("defaultSeverity")int defaultSeverity, @Param("defaultNotch")int defaultNotch,
+                               @Param("defaultCancel")int defaultCancel, @Param("defaultDelay")int defaultDelay, @Param("defaultRelate")int defaultRelate,
+                               @Param("defaultSubstitute")int defaultSubstitute, @Param("defaultBankrupt")int defaultBankrupt,@Param("defaultExternal")int defaultExternal,
+                               @Param("startCreated")String startCreated, @Param("endCreated") String endCreated,
+                               @Param("startReviewed")String startReviewed, @Param("endReviewed") String endReviewed);
+
+    //查询所有违约情况
     List<Default> queryAllDefault();
 
     }

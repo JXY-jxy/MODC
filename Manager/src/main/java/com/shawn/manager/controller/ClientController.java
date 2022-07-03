@@ -1,17 +1,12 @@
 package com.shawn.manager.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.shawn.core.base.Result;
 import com.shawn.core.base.Results;
-import com.shawn.manager.dao.ClientMapper;
 import com.shawn.manager.pojo.Client;
-import com.shawn.manager.service.ClientService;
 import com.shawn.manager.service.impl.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -28,10 +23,11 @@ public class ClientController {
                                      @RequestParam(value = "clientIdCard")String clientIdCard,
                                      @RequestParam(value = "clientTel")String clientTel,
                                      @RequestParam(value ="clientEmail") String clientEmail,
-                                     @RequestParam(value ="clientState",defaultValue = "0") int clientState
+                                     @RequestParam(value ="clientState",defaultValue = "0") int clientState,
+                                     @RequestParam(value ="clientRete",defaultValue = "0") int clientRete
                                      ){
 
-        boolean result = clientService.addClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState);
+        boolean result = clientService.addClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
         return Results.newSuccessResult(result);
     }
 
@@ -65,10 +61,10 @@ public class ClientController {
                                      @RequestParam(value ="clientEmail") String clientEmail,
                                      @RequestParam(value ="startTime") String startTime,
                                      @RequestParam(value ="endTime") String endTime,
-                                     @RequestParam(value ="clientState") int clientState
+                                     @RequestParam(value ="clientState") int clientState,
+                                     @RequestParam(value ="clientRete") int clientRete
                                      ){
-        List<Client>  result = clientService.queryClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,startTime,endTime,clientState);
-//        List<Client> result = clientService.queryClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState);
+        List<Client>  result = clientService.queryClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,startTime,endTime,clientState,clientRete);
         return Results.newSuccessResult(result);
     }
 

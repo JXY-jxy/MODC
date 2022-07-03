@@ -5,19 +5,24 @@ import com.shawn.manager.pojo.Default;
 import java.util.List;
 
 public interface DefaultService {
-    //添加客户
+    //添加违约情况
     boolean addDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
                        int defaultState, String defaultRemark,
-                       int defaultRete,int defaultNotch,int defaultCancel,int defaultDelay, int defaultRelate,
-                       int defaultSubstitute,int defaultBankrupt);
+                       int defaultSeverity,int defaultNotch,int defaultCancel,int defaultDelay, int defaultRelate,
+                       int defaultSubstitute,int defaultBankrupt,int defaultExternal);
 
-    //根据Id删除客户
-    boolean deleteDefaultById(String defaultId);
+    //更新审核状态 0未审核 1审核通过
+    boolean updateDefalutStateToPass(String defaultId);
 
+    //更新审核状态 0未审核 2审核不通过
+    boolean updateDefalutStateToFail(String defaultId);
 
-    //根据多重条件查询客户
-    List<Default> queryDefault(String defaultId, String defaultName, String defaultSex, String defaultIdCard, String defaultTel, String defaultEmail, String startTime,String endTime);
+    //根据多重条件查询违约情况
+    List<Default> queryDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
+                               int defaultState, String defaultRemark, int defaultSeverity,int defaultNotch,int defaultCancel,
+                               int defaultDelay, int defaultRelate, int defaultSubstitute,int defaultBankrupt,int defaultExternal,
+                               String startCreated,String endCreated,String startReviewed,String endReviewed);
 
-    //查询所有客户
+    //查询所有违约情况
     List<Default> queryAllDefault();
 }

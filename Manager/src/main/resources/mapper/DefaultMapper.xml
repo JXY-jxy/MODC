@@ -3,39 +3,56 @@
 <!--一个mapper对应一个接口，通过namespace-->
 <mapper namespace="com.shawn.manager.dao.DefaultMapper">
 
-    <!--添加客户-->
+    <!--提出违约申请-->
     <insert id="addDefault" parameterType="com.shawn.manager.pojo.Default">
-      insert into default (defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
-                           defaultRemark,defaultRete,defaultNotch,defaultCancel,defaultDelay,
-                           defaultRelate,defaultSubstitute,defaultBankrupt)
+      insert into defaultform (defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+                           defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay,
+                           defaultRelate,defaultSubstitute,defaultBankrupt,defaultExternal)
       values (#{defaultId},#{clientId},#{clientName},#{sponsorId},#{sponsorName},#{defaultState},#{defaultRemark},
-              #{defaultRete},#{defaultNotch},#{defaultCancel},#{defaultDelay},#{defaultRelate},
-              #{defaultSubstitute},#{defaultBankrupt});
+              #{defaultSeverity},#{defaultNotch},#{defaultCancel},#{defaultDelay},#{defaultRelate},
+              #{defaultSubstitute},#{defaultBankrupt},#{defaultExternal});
     </insert>
 
-    <!--    根据Id删除客户-->
-    <delete id="deleteDefaultById" parameterType="String">
-    delete from default where defaultId=#{defaultId}
-    </delete>
+    <!--    更新审核状态为1-->
+    <update id="updateDefalutStateToPass" parameterType="com.shawn.manager.pojo.Default">
+    update defaultform set defaultState=1
+    where defaultId=#{defaultId};
+    </update>
 
-    <!--    根据多重条件查询客户-->
+    <!--    更新审核状态为2-->
+    <update id="updateDefalutStateToFail" parameterType="com.shawn.manager.pojo.Default">
+    update defaultform set defaultState=2
+    where defaultId=#{defaultId};
+    </update>
+
+    <!--    根据多重条件查询违约情况-->
     <select id="queryDefault" resultType="com.shawn.manager.pojo.Default">
-            select * from default
+            select * from defaultform
             <where>
                 1=1
                 <if test="defaultId!=null and defaultId!=''">and defaultId = #{defaultId} </if>
-                <if test="defaultName!=null and defaultName!=''"> and defaultName = #{defaultName}</if>
-                <if test="defaultSex!=null and defaultSex!=''"> and defaultSex = #{defaultSex}</if>
-                <if test="defaultIdCard!=null and defaultIdCard!=''"> and defaultIdCard = #{defaultIdCard}</if>
-                <if test="defaultTel!=null and defaultTel!=''"> and defaultTel = #{defaultTel}</if>
-                <if test="defaultEmail!=null and defaultEmail!=''"> and defaultEmail = #{defaultEmail}</if>
-                <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(defaultCreated) BETWEEN #{startTime} AND #{endTime}</if>
+                <if test="clientId!=null and clientId!=''"> and clientId = #{clientId}</if>
+                <if test="clientName!=null and clientName!=''"> and clientName = #{clientName}</if>
+                <if test="sponsorId!=null and sponsorId!=''"> and sponsorId = #{sponsorId}</if>
+                <if test="sponsorName!=null and sponsorName!=''"> and sponsorName = #{sponsorName}</if>
+                <if test="defaultState!=null and defaultState!=''"> and defaultState = #{defaultState}</if>
+                <if test="defaultRemark!=null and defaultRemark!=''">and defaultRemark = #{defaultRemark} </if>
+                <if test="defaultSeverity!=null and defaultSeverity!=''"> and defaultSeverity = #{defaultSeverity}</if>
+                <if test="defaultNotch!=null and defaultNotch!=''"> and defaultNotch = #{defaultNotch}</if>
+                <if test="defaultCancel!=null and defaultCancel!=''"> and defaultCancel = #{defaultCancel}</if>
+                <if test="defaultDelay!=null and defaultDelay!=''"> and defaultDelay = #{defaultDelay}</if>
+                <if test="defaultRelate!=null and defaultRelate!=''"> and defaultRelate = #{defaultRelate}</if>
+                <if test="defaultSubstitute!=null and defaultSubstitute!=''">and defaultSubstitute = #{defaultSubstitute} </if>
+                <if test="defaultBankrupt!=null and defaultBankrupt!=''"> and defaultBankrupt = #{defaultBankrupt}</if>
+                <if test="defaultExternal!=null and defaultExternal!=''"> and defaultExternal = #{defaultExternal}</if>
+                <if test="startCreated!=null and startCreated!='' and endCreated!=null and endCreated!=''"> and Date(defaultCreated) BETWEEN #{startCreated} AND #{endCreated}</if>
+                <if test="startReviewed!=null and startReviewed!='' and endReviewed!=null and endReviewed!=''"> and Date(defaultReviewed) BETWEEN #{startReviewed} AND #{endReviewed}</if>
             </where>
     </select>
 
     <!--    查询所有客户-->
     <select id="queryAllDefault" resultType="com.shawn.manager.pojo.Default">
-    select * from default
+    select * from defaultform
     </select>
 
 </mapper>
