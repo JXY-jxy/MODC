@@ -21,46 +21,66 @@ public class DefaultController {
 
     @RequestMapping(value="/addDefault", method = RequestMethod.POST)
     public Result<Boolean> addDefault(@RequestParam(value ="defaultId") String defaultId,
-                                     @RequestParam(value = "clientId") String clientId,
+                                      @RequestParam(value = "clientId") String clientId,
                                       @RequestParam(value = "clientName") String clientName,
                                       @RequestParam(value = "sponsorId") String sponsorId,
                                       @RequestParam(value = "sponsorName") String sponsorName,
                                       @RequestParam(value ="defaultState",defaultValue = "0") int defaultState,
                                       @RequestParam(value = "defaultRemark") String defaultRemark,
-                                      @RequestParam(value ="defaultRete",defaultValue = "0") int defaultRete,
+                                      @RequestParam(value ="defaultSeverity",defaultValue = "0") int defaultSeverity,
                                       @RequestParam(value ="defaultNotch",defaultValue = "0") int defaultNotch,
                                       @RequestParam(value ="defaultCancel",defaultValue = "0") int defaultCancel,
                                       @RequestParam(value ="defaultDelay",defaultValue = "0") int defaultDelay,
                                       @RequestParam(value ="defaultRelate",defaultValue = "0") int defaultRelate,
                                       @RequestParam(value ="defaultSubstitute",defaultValue = "0") int defaultSubstitute,
-                                      @RequestParam(value ="defaultBankrupt",defaultValue = "0") int defaultBankrupt
+                                      @RequestParam(value ="defaultBankrupt",defaultValue = "0") int defaultBankrupt,
+                                      @RequestParam(value ="defaultExternal",defaultValue = "0") int defaultExternal
                                      ){
 
         boolean result = defaultService.addDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
-                defaultRemark,defaultRete,defaultNotch,defaultCancel,defaultDelay,
-                defaultRelate,defaultSubstitute,defaultBankrupt);
+                defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
+                defaultBankrupt,defaultExternal);
+        return Results.newSuccessResult(result);
+    }
+    // 更新审核状态为1
+    @RequestMapping(value="/updateDefalutStateToPass", method = RequestMethod.POST)
+    public Result<Boolean> updateDefalutStateToPass(@RequestParam(value="defaultId")String defaultId){
+        Boolean result = defaultService.updateDefalutStateToPass(defaultId);
         return Results.newSuccessResult(result);
     }
 
-    @RequestMapping(value="/deleteDefaultById", method = RequestMethod.DELETE)
-    public Result<Boolean> deleteDefaultById(@RequestParam(value="defaultId")String defaultId){
-        Boolean result = defaultService.deleteDefaultById(defaultId);
+    // 更新审核状态为2
+    @RequestMapping(value="/updateDefalutStateToFail", method = RequestMethod.POST)
+    public Result<Boolean> updateDefalutStateToFail(@RequestParam(value="defaultId")String defaultId){
+        Boolean result = defaultService.updateDefalutStateToFail(defaultId);
         return Results.newSuccessResult(result);
     }
-
 
     //多重条件查询
     @RequestMapping(value = "/queryDefault",method = RequestMethod.GET)
     public Result<List<Default>> queryDefault(@RequestParam(value ="defaultId") String defaultId,
-                                     @RequestParam(value = "defaultName") String defaultName,
-                                     @RequestParam(value = "defaultSex")String defaultSex,
-                                     @RequestParam(value = "defaultIdCard")String defaultIdCard,
-                                     @RequestParam(value = "defaultTel")String defaultTel,
-                                     @RequestParam(value ="defaultEmail") String defaultEmail,
-                                     @RequestParam(value ="startTime") String startTime,
-                                     @RequestParam(value ="endTime") String endTime
+                                              @RequestParam(value = "clientId") String clientId,
+                                              @RequestParam(value = "clientName") String clientName,
+                                              @RequestParam(value = "sponsorId") String sponsorId,
+                                              @RequestParam(value = "sponsorName") String sponsorName,
+                                              @RequestParam(value ="defaultState",defaultValue = "0") int defaultState,
+                                              @RequestParam(value = "defaultRemark") String defaultRemark,
+                                              @RequestParam(value ="defaultSeverity",defaultValue = "0") int defaultSeverity,
+                                              @RequestParam(value ="defaultNotch",defaultValue = "0") int defaultNotch,
+                                              @RequestParam(value ="defaultCancel",defaultValue = "0") int defaultCancel,
+                                              @RequestParam(value ="defaultDelay",defaultValue = "0") int defaultDelay,
+                                              @RequestParam(value ="defaultRelate",defaultValue = "0") int defaultRelate,
+                                              @RequestParam(value ="defaultSubstitute",defaultValue = "0") int defaultSubstitute,
+                                              @RequestParam(value ="defaultBankrupt",defaultValue = "0") int defaultBankrupt,
+                                              @RequestParam(value ="defaultExternal",defaultValue = "0") int defaultExternal,
+                                              @RequestParam(value ="startCreated")String startCreated,
+                                              @RequestParam(value ="endCreated") String endCreated,
+                                              @RequestParam(value ="startReviewed")String startReviewed,
+                                              @RequestParam(value ="endReviewed") String endReviewed
                                      ){
-        List<Default>  result = defaultService.queryDefault(defaultId,defaultName,defaultSex,defaultIdCard,defaultTel,defaultEmail,startTime,endTime);
+        List<Default>  result = defaultService.queryDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+                defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
+                defaultBankrupt,defaultExternal,startCreated,endCreated,startReviewed,endReviewed);
         return Results.newSuccessResult(result);
     }
 

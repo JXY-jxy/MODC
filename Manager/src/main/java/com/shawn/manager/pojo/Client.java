@@ -8,6 +8,11 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 //客户
+/**
+ * Author: shawn
+ * Time: 2022/7/3
+ * Description:
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +25,7 @@ public class Client {
     private String clientEmail;
     private Date clientCreated;
     private int clientState;
+    private int clientRete;
 
 
 }

@@ -5,8 +5,8 @@
 
     <!--添加客户-->
     <insert id="addClient" parameterType="com.shawn.manager.pojo.Client">
-      insert into client (clientId, clientName, clientSex, clientIdCard,clientTel,clientEmail,clientState)
-      values (#{clientId},#{clientName},#{clientSex},#{clientIdCard},#{clientTel},#{clientEmail},#{clientState});
+      insert into client (clientId, clientName, clientSex, clientIdCard,clientTel,clientEmail,clientState,clientRete)
+      values (#{clientId},#{clientName},#{clientSex},#{clientIdCard},#{clientTel},#{clientEmail},#{clientState},#{clientRete});
     </insert>
 
     <!--    根据Id删除客户-->
@@ -40,6 +40,7 @@
                 <if test="clientEmail!=null and clientEmail!=''"> and clientEmail = #{clientEmail}</if>
                 <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''"> and Date(clientCreated) BETWEEN #{startTime} AND #{endTime}</if>
                 <if test="clientState!=null and clientState!=''"> and clientState = #{clientState}</if>
+                <if test="clientRete!=null and clientRete!=''"> and clientRete = #{clientRete}</if>
             </where>
     </select>
 

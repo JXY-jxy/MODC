@@ -16,23 +16,31 @@ public class DefaultServiceImpl implements DefaultService {
 
     @Override
     public boolean addDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
-                              int defaultState, String defaultRemark,
-                              int defaultRete,int defaultNotch,int defaultCancel,int defaultDelay, int defaultRelate,
-                              int defaultSubstitute,int defaultBankrupt) {
+                              int defaultState, String defaultRemark, int defaultSeverity,int defaultNotch,int defaultCancel,
+                              int defaultDelay, int defaultRelate, int defaultSubstitute,int defaultBankrupt,int defaultExternal) {
         return defaultMapper.addDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
-                defaultRemark,defaultRete,defaultNotch,defaultCancel,defaultDelay,
-                defaultRelate,defaultSubstitute,defaultBankrupt);
+                defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay,
+                defaultRelate,defaultSubstitute,defaultBankrupt,defaultExternal);
     }
 
     @Override
-    public boolean deleteDefaultById(String defaultId) {
-        return defaultMapper.deleteDefaultById(defaultId);
+    public boolean updateDefalutStateToPass(String defaultId) {
+        return defaultMapper.updateDefalutStateToPass(defaultId);
     }
 
+    @Override
+    public boolean updateDefalutStateToFail(String defaultId) {
+        return defaultMapper.updateDefalutStateToFail(defaultId);
+    }
 
     @Override
-    public List<Default> queryDefault(String defaultId, String defaultName, String defaultSex, String defaultIdCard, String defaultTel, String defaultEmail,String startTime,String endTime) {
-        return defaultMapper.queryDefault(defaultId,defaultName,defaultSex,defaultIdCard,defaultTel,defaultEmail,startTime,endTime);
+    public List<Default> queryDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
+                                      int defaultState, String defaultRemark, int defaultSeverity,int defaultNotch,int defaultCancel,
+                                      int defaultDelay, int defaultRelate, int defaultSubstitute,int defaultBankrupt,int defaultExternal,
+                                      String startCreated,String endCreated,String startReviewed,String endReviewed) {
+        return defaultMapper.queryDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+                defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
+                defaultBankrupt,defaultExternal,startCreated,endCreated,startReviewed,endReviewed);
     }
 
     @Override
