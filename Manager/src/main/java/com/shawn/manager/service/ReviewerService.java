@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ReviewerService {
     //添加客户
-    boolean addReviewer(String reviewerId,String reviewerName,String reviewerSex,String reviewerIdCard,String reviewerTel,String reviewerEmail);
+    boolean addReviewer(String reviewerName,String reviewerSex,String reviewerIdCard,String reviewerTel,String reviewerEmail);
 
     //根据Id删除客户
     boolean deleteReviewerById(String reviewerId);

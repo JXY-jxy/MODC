@@ -17,8 +17,8 @@ public class ClientServiceImpl implements ClientService {
     ClientMapper clientMapper;
 
     @Override
-    public boolean addClient(String clientId,String clientName,String clientSex,String clientIdCard,String clientTel,String clientEmail,int clientState,int clientRete) {
-        return clientMapper.addClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
+    public boolean addClient(String clientName,String clientSex,String clientIdCard,String clientTel,String clientEmail,int clientState,int clientRete) {
+        return clientMapper.addClient(clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
     }
 
     @Override

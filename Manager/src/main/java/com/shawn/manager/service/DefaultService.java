@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DefaultService {
     //添加违约情况
-    boolean addDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
+    boolean addDefault(String clientId,String clientName,String sponsorId,String sponsorName,
                        int defaultState, String defaultRemark,
                        int defaultSeverity,int defaultNotch,int defaultCancel,int defaultDelay, int defaultRelate,
                        int defaultSubstitute,int defaultBankrupt,int defaultExternal);

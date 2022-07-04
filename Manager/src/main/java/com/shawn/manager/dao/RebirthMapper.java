@@ -12,7 +12,7 @@ import java.util.List;
 public interface RebirthMapper {
 
     //添加违约情况
-    boolean addRebirth(@Param("rebirthId")String rebirthId, @Param("defaultId")String defaultId,
+    boolean addRebirth(@Param("defaultId")String defaultId,
                        @Param("rebirthState")int rebirthState, @Param("rebirthRemark")String rebirthRemark,
                        @Param("rebirthRelieve")int rebirthRelieve, @Param("rebirthSettle")int rebirthSettle,
                        @Param("rebirthChange")int rebirthChange, @Param("rebirthReduce")int rebirthReduce,

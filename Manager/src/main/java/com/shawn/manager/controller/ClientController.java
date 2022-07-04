@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/client")
 public class ClientController {
 
@@ -17,7 +18,7 @@ public class ClientController {
     ClientServiceImpl clientService;
 
     @RequestMapping(value="/addClient", method = RequestMethod.POST)
-    public Result<Boolean> addClient(@RequestParam(value ="clientId") String clientId,
+    public Result<Boolean> addClient(
                                      @RequestParam(value = "clientName") String clientName,
                                      @RequestParam(value = "clientSex")String clientSex,
                                      @RequestParam(value = "clientIdCard")String clientIdCard,
@@ -27,7 +28,7 @@ public class ClientController {
                                      @RequestParam(value ="clientRete",defaultValue = "0") int clientRete
                                      ){
 
-        boolean result = clientService.addClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
+        boolean result = clientService.addClient(clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
         return Results.newSuccessResult(result);
     }
 

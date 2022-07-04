@@ -15,10 +15,10 @@ public class DefaultServiceImpl implements DefaultService {
     DefaultMapper defaultMapper;
 
     @Override
-    public boolean addDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
+    public boolean addDefault(String clientId,String clientName,String sponsorId,String sponsorName,
                               int defaultState, String defaultRemark, int defaultSeverity,int defaultNotch,int defaultCancel,
                               int defaultDelay, int defaultRelate, int defaultSubstitute,int defaultBankrupt,int defaultExternal) {
-        return defaultMapper.addDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+        return defaultMapper.addDefault(clientId,clientName,sponsorId,sponsorName,defaultState,
                 defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay,
                 defaultRelate,defaultSubstitute,defaultBankrupt,defaultExternal);
     }

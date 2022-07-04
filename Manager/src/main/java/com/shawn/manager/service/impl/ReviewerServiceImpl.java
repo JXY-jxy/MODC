@@ -15,8 +15,8 @@ public class ReviewerServiceImpl implements ReviewerService {
     ReviewerMapper reviewerMapper;
 
     @Override
-    public boolean addReviewer(String reviewerId,String reviewerName,String reviewerSex,String reviewerIdCard,String reviewerTel,String reviewerEmail) {
-        return reviewerMapper.addReviewer(reviewerId,reviewerName,reviewerSex,reviewerIdCard,reviewerTel,reviewerEmail);
+    public boolean addReviewer(String reviewerName,String reviewerSex,String reviewerIdCard,String reviewerTel,String reviewerEmail) {
+        return reviewerMapper.addReviewer(reviewerName,reviewerSex,reviewerIdCard,reviewerTel,reviewerEmail);
     }
 
     @Override

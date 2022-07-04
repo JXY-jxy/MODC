@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RebirthService {
     //添加重生情况
-    boolean addRebirth(String rebirthId,String defaultId,int rebirthState,String rebirthRemark,int rebirthRelieve,
+    boolean addRebirth(String defaultId,int rebirthState,String rebirthRemark,int rebirthRelieve,
                        int rebirthSettle, int rebirthChange,int rebirthReduce,int rebirthPay,int rebirthRepay);
 
     //更新审核状态 0未审核 1审核通过

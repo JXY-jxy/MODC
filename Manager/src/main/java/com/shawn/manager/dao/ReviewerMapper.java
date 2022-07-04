@@ -12,7 +12,7 @@ import java.util.List;
 public interface ReviewerMapper {
 
     //添加客户
-    boolean addReviewer(@Param("reviewerId")String reviewerId, @Param("reviewerName")String reviewerName, @Param("reviewerSex")String reviewerSex,
+    boolean addReviewer(@Param("reviewerName")String reviewerName, @Param("reviewerSex")String reviewerSex,
                        @Param("reviewerIdCard")String reviewerIdCard, @Param("reviewerTel") String reviewerTel, @Param("reviewerEmail")String reviewerEmail);
 
     //根据Id删除客户

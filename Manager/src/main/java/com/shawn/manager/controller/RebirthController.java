@@ -6,14 +6,12 @@ import com.shawn.core.base.Results;
 import com.shawn.manager.pojo.Rebirth;
 import com.shawn.manager.service.impl.RebirthServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/rebirth")
 public class RebirthController {
 
@@ -21,7 +19,7 @@ public class RebirthController {
     RebirthServiceImpl rebirthService;
 
     @RequestMapping(value="/addRebirth", method = RequestMethod.POST)
-    public Result<Boolean> addRebirth(@RequestParam(value ="rebirthId") String rebirthId,
+    public Result<Boolean> addRebirth(
                                       @RequestParam(value = "defaultId") String defaultId,
                                       @RequestParam(value = "rebirthState",defaultValue = "0") int rebirthState,
                                       @RequestParam(value = "rebirthRemark") String rebirthRemark,
@@ -33,7 +31,7 @@ public class RebirthController {
                                       @RequestParam(value ="rebirthRepay",defaultValue = "0") int rebirthRepay
     ){
 
-        boolean result = rebirthService.addRebirth(rebirthId, defaultId, rebirthState, rebirthRemark, rebirthRelieve,
+        boolean result = rebirthService.addRebirth(defaultId, rebirthState, rebirthRemark, rebirthRelieve,
                 rebirthSettle,  rebirthChange, rebirthReduce, rebirthPay, rebirthRepay);
         return Results.newSuccessResult(result);
     }

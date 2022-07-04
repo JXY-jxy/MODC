@@ -5,14 +5,12 @@ import com.shawn.core.base.Results;
 import com.shawn.manager.pojo.Default;
 import com.shawn.manager.service.impl.DefaultServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/default")
 public class DefaultController {
 
@@ -20,7 +18,7 @@ public class DefaultController {
     DefaultServiceImpl defaultService;
 
     @RequestMapping(value="/addDefault", method = RequestMethod.POST)
-    public Result<Boolean> addDefault(@RequestParam(value ="defaultId") String defaultId,
+    public Result<Boolean> addDefault(
                                       @RequestParam(value = "clientId") String clientId,
                                       @RequestParam(value = "clientName") String clientName,
                                       @RequestParam(value = "sponsorId") String sponsorId,
@@ -37,7 +35,7 @@ public class DefaultController {
                                       @RequestParam(value ="defaultExternal",defaultValue = "0") int defaultExternal
                                      ){
 
-        boolean result = defaultService.addDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+        boolean result = defaultService.addDefault(clientId,clientName,sponsorId,sponsorName,defaultState,
                 defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
                 defaultBankrupt,defaultExternal);
         return Results.newSuccessResult(result);

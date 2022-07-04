@@ -5,10 +5,10 @@
 
     <!--提出违约申请-->
     <insert id="addDefault" parameterType="com.shawn.manager.pojo.Default">
-      insert into defaultform (defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
+      insert into defaultform (clientId,clientName,sponsorId,sponsorName,defaultState,
                            defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay,
                            defaultRelate,defaultSubstitute,defaultBankrupt,defaultExternal)
-      values (#{defaultId},#{clientId},#{clientName},#{sponsorId},#{sponsorName},#{defaultState},#{defaultRemark},
+      values (#{clientId},#{clientName},#{sponsorId},#{sponsorName},#{defaultState},#{defaultRemark},
               #{defaultSeverity},#{defaultNotch},#{defaultCancel},#{defaultDelay},#{defaultRelate},
               #{defaultSubstitute},#{defaultBankrupt},#{defaultExternal});
     </insert>

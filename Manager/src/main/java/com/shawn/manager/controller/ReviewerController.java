@@ -5,14 +5,12 @@ import com.shawn.core.base.Results;
 import com.shawn.manager.pojo.Reviewer;
 import com.shawn.manager.service.impl.ReviewerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/reviewer")
 public class ReviewerController {
 
@@ -20,7 +18,7 @@ public class ReviewerController {
     ReviewerServiceImpl reviewerService;
 
     @RequestMapping(value="/addReviewer", method = RequestMethod.POST)
-    public Result<Boolean> addReviewer(@RequestParam(value ="reviewerId") String reviewerId,
+    public Result<Boolean> addReviewer(
                                      @RequestParam(value = "reviewerName") String reviewerName,
                                      @RequestParam(value = "reviewerSex")String reviewerSex,
                                      @RequestParam(value = "reviewerIdCard")String reviewerIdCard,
@@ -28,7 +26,7 @@ public class ReviewerController {
                                      @RequestParam(value ="reviewerEmail") String reviewerEmail
                                      ){
 
-        boolean result = reviewerService.addReviewer(reviewerId,reviewerName,reviewerSex,reviewerIdCard,reviewerTel,reviewerEmail);
+        boolean result = reviewerService.addReviewer(reviewerName,reviewerSex,reviewerIdCard,reviewerTel,reviewerEmail);
         return Results.newSuccessResult(result);
     }
 
