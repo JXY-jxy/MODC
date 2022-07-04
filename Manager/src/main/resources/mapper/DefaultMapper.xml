@@ -28,7 +28,7 @@
     <!--    根据多重条件查询违约情况-->
     <select id="queryDefault" resultType="com.shawn.manager.pojo.Default">
             select d.* from defaultform d left join client c on d.clientId=c.clientId
-            <where>
+            where
                 1=1
                 <if test="defaultId!=null and defaultId!=''">and defaultId = #{defaultId} </if>
                 <if test="clientId!=null and clientId!=''"> and d.clientId = #{clientId}</if>
@@ -47,7 +47,7 @@
                 <if test="defaultExternal!=null and defaultExternal!=''"> and defaultExternal = #{defaultExternal}</if>
                 <if test="startCreated!=null and startCreated!='' and endCreated!=null and endCreated!=''"> and Date(defaultCreated) BETWEEN #{startCreated} AND #{endCreated}</if>
                 <if test="startReviewed!=null and startReviewed!='' and endReviewed!=null and endReviewed!=''"> and Date(defaultReviewed) BETWEEN #{startReviewed} AND #{endReviewed}</if>
-            </where>
+
     </select>
 
     <!--    查询所有客户-->
