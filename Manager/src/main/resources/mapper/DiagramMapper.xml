@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.shawn.manager.dao.DiagramMapper">
+
+
+    <!--    查询所有行业-->
+    <select id="queryAllIndustry" resultType="com.shawn.manager.pojo.Industry">
+    select * from industry
+    </select>
+
+    <!--    查询所有区域-->
+    <select id="queryAllRegion" resultType="com.shawn.manager.pojo.Region">
+    select * from region
+    </select>
+
+</mapper>
+
