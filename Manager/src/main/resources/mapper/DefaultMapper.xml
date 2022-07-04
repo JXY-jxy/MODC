@@ -27,16 +27,16 @@
 
     <!--    根据多重条件查询违约情况-->
     <select id="queryDefault" resultType="com.shawn.manager.pojo.Default">
-            select * from defaultform
+            select d.* from defaultform d left join client c on d.clientId=c.clientId
             <where>
                 1=1
                 <if test="defaultId!=null and defaultId!=''">and defaultId = #{defaultId} </if>
-                <if test="clientId!=null and clientId!=''"> and clientId = #{clientId}</if>
-                <if test="clientName!=null and clientName!=''"> and clientName = #{clientName}</if>
+                <if test="clientId!=null and clientId!=''"> and d.clientId = #{clientId}</if>
+                <if test="clientName!=null and clientName!=''"> and d.clientName = #{clientName}</if>
                 <if test="sponsorId!=null and sponsorId!=''"> and sponsorId = #{sponsorId}</if>
                 <if test="sponsorName!=null and sponsorName!=''"> and sponsorName = #{sponsorName}</if>
                 <if test="defaultState!=null and defaultState!=''"> and defaultState = #{defaultState}</if>
-                <if test="defaultRemark!=null and defaultRemark!=''">and defaultRemark = #{defaultRemark} </if>
+                <if test="clientRete!=null and clientRete!=''">and clientRete = #{clientRete} </if>
                 <if test="defaultSeverity!=null and defaultSeverity!=''"> and defaultSeverity = #{defaultSeverity}</if>
                 <if test="defaultNotch!=null and defaultNotch!=''"> and defaultNotch = #{defaultNotch}</if>
                 <if test="defaultCancel!=null and defaultCancel!=''"> and defaultCancel = #{defaultCancel}</if>

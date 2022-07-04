@@ -36,8 +36,8 @@ public class ReviewerServiceImpl implements ReviewerService {
     }
 
     @Override
-    public boolean login(String reviewerTel,String reviewerPwd) {
-        return reviewerMapper.login(reviewerTel,reviewerPwd);
+    public Reviewer loginReviewer(String reviewerTel,String reviewerPwd) {
+        return reviewerMapper.loginReviewer(reviewerTel,reviewerPwd);
 
     }
 }

@@ -27,6 +27,6 @@ public interface ReviewerMapper {
     List<Reviewer> queryAllReviewer();
 
     //审核员登录
-    boolean login(@Param("reviewerTel") String reviewerTel,@Param("reviewerPwd") String reviewerPwd);
+    Reviewer loginReviewer(@Param("reviewerTel") String reviewerTel,@Param("reviewerPwd") String reviewerPwd);
 
 }

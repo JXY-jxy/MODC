@@ -16,10 +16,10 @@ public class DefaultServiceImpl implements DefaultService {
 
     @Override
     public boolean addDefault(String clientId,String clientName,String sponsorId,String sponsorName,
-                              int defaultState, String defaultRemark, int defaultSeverity,int defaultNotch,int defaultCancel,
-                              int defaultDelay, int defaultRelate, int defaultSubstitute,int defaultBankrupt,int defaultExternal) {
+                              String defaultState, String clientRete, String defaultSeverity,String defaultNotch,String defaultCancel,
+                              String defaultDelay, String defaultRelate, String defaultSubstitute,String defaultBankrupt,String defaultExternal) {
         return defaultMapper.addDefault(clientId,clientName,sponsorId,sponsorName,defaultState,
-                defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay,
+                clientRete,defaultSeverity,defaultNotch,defaultCancel,defaultDelay,
                 defaultRelate,defaultSubstitute,defaultBankrupt,defaultExternal);
     }
 
@@ -35,8 +35,8 @@ public class DefaultServiceImpl implements DefaultService {
 
     @Override
     public List<Default> queryDefault(String defaultId,String clientId,String clientName,String sponsorId,String sponsorName,
-                                      int defaultState, String defaultRemark, int defaultSeverity,int defaultNotch,int defaultCancel,
-                                      int defaultDelay, int defaultRelate, int defaultSubstitute,int defaultBankrupt,int defaultExternal,
+                                      String defaultState, String defaultRemark, String defaultSeverity,String defaultNotch,String defaultCancel,
+                                      String defaultDelay, String defaultRelate, String defaultSubstitute,String defaultBankrupt,String defaultExternal,
                                       String startCreated,String endCreated,String startReviewed,String endReviewed) {
         return defaultMapper.queryDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
                 defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
