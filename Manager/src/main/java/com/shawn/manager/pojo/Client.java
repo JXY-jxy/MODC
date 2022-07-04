@@ -26,8 +26,8 @@ public class Client {
     private String clientTel;
     private String clientEmail;
     private Date clientCreated;
-    private int clientState;
-    private int clientRete;
+    private String clientState;
+    private String clientRete;
 
 
 }

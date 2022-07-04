@@ -23,16 +23,16 @@ public class DefaultController {
                                       @RequestParam(value = "clientName") String clientName,
                                       @RequestParam(value = "sponsorId") String sponsorId,
                                       @RequestParam(value = "sponsorName") String sponsorName,
-                                      @RequestParam(value ="defaultState",defaultValue = "0") int defaultState,
+                                      @RequestParam(value = "defaultState",defaultValue = "0") String defaultState,
                                       @RequestParam(value = "defaultRemark") String defaultRemark,
-                                      @RequestParam(value ="defaultSeverity",defaultValue = "0") int defaultSeverity,
-                                      @RequestParam(value ="defaultNotch",defaultValue = "0") int defaultNotch,
-                                      @RequestParam(value ="defaultCancel",defaultValue = "0") int defaultCancel,
-                                      @RequestParam(value ="defaultDelay",defaultValue = "0") int defaultDelay,
-                                      @RequestParam(value ="defaultRelate",defaultValue = "0") int defaultRelate,
-                                      @RequestParam(value ="defaultSubstitute",defaultValue = "0") int defaultSubstitute,
-                                      @RequestParam(value ="defaultBankrupt",defaultValue = "0") int defaultBankrupt,
-                                      @RequestParam(value ="defaultExternal",defaultValue = "0") int defaultExternal
+                                      @RequestParam(value = "defaultSeverity",defaultValue = "0") String defaultSeverity,
+                                      @RequestParam(value = "defaultNotch",defaultValue = "0") String defaultNotch,
+                                      @RequestParam(value = "defaultCancel",defaultValue = "0") String defaultCancel,
+                                      @RequestParam(value = "defaultDelay",defaultValue = "0") String defaultDelay,
+                                      @RequestParam(value = "defaultRelate",defaultValue = "0") String defaultRelate,
+                                      @RequestParam(value = "defaultSubstitute",defaultValue = "0") String defaultSubstitute,
+                                      @RequestParam(value = "defaultBankrupt",defaultValue = "0") String defaultBankrupt,
+                                      @RequestParam(value = "defaultExternal",defaultValue = "0") String defaultExternal
                                      ){
 
         boolean result = defaultService.addDefault(clientId,clientName,sponsorId,sponsorName,defaultState,
@@ -56,28 +56,28 @@ public class DefaultController {
 
     //多重条件查询
     @RequestMapping(value = "/queryDefault",method = RequestMethod.GET)
-    public Result<List<Default>> queryDefault(@RequestParam(value ="defaultId") String defaultId,
+    public Result<List<Default>> queryDefault(@RequestParam(value = "defaultId") String defaultId,
                                               @RequestParam(value = "clientId") String clientId,
                                               @RequestParam(value = "clientName") String clientName,
                                               @RequestParam(value = "sponsorId") String sponsorId,
                                               @RequestParam(value = "sponsorName") String sponsorName,
-                                              @RequestParam(value ="defaultState",defaultValue = "0") int defaultState,
-                                              @RequestParam(value = "defaultRemark") String defaultRemark,
-                                              @RequestParam(value ="defaultSeverity",defaultValue = "0") int defaultSeverity,
-                                              @RequestParam(value ="defaultNotch",defaultValue = "0") int defaultNotch,
-                                              @RequestParam(value ="defaultCancel",defaultValue = "0") int defaultCancel,
-                                              @RequestParam(value ="defaultDelay",defaultValue = "0") int defaultDelay,
-                                              @RequestParam(value ="defaultRelate",defaultValue = "0") int defaultRelate,
-                                              @RequestParam(value ="defaultSubstitute",defaultValue = "0") int defaultSubstitute,
-                                              @RequestParam(value ="defaultBankrupt",defaultValue = "0") int defaultBankrupt,
-                                              @RequestParam(value ="defaultExternal",defaultValue = "0") int defaultExternal,
-                                              @RequestParam(value ="startCreated")String startCreated,
-                                              @RequestParam(value ="endCreated") String endCreated,
-                                              @RequestParam(value ="startReviewed")String startReviewed,
-                                              @RequestParam(value ="endReviewed") String endReviewed
+                                              @RequestParam(value = "defaultState",defaultValue = "0") String defaultState,//审核状态
+                                              @RequestParam(value = "clientRete") String clientRete,//最新外部评级
+                                              @RequestParam(value = "defaultSeverity",defaultValue = "0") String defaultSeverity,
+                                              @RequestParam(value = "defaultNotch",defaultValue = "0") String defaultNotch,
+                                              @RequestParam(value = "defaultCancel",defaultValue = "0") String defaultCancel,
+                                              @RequestParam(value = "defaultDelay",defaultValue = "0") String defaultDelay,
+                                              @RequestParam(value = "defaultRelate",defaultValue = "0") String defaultRelate,
+                                              @RequestParam(value = "defaultSubstitute",defaultValue = "0") String defaultSubstitute,
+                                              @RequestParam(value = "defaultBankrupt",defaultValue = "0") String defaultBankrupt,
+                                              @RequestParam(value = "defaultExternal",defaultValue = "0") String defaultExternal,
+                                              @RequestParam(value = "startCreated")String startCreated,
+                                              @RequestParam(value = "endCreated") String endCreated,
+                                              @RequestParam(value = "startReviewed")String startReviewed,
+                                              @RequestParam(value = "endReviewed") String endReviewed
                                      ){
         List<Default>  result = defaultService.queryDefault(defaultId,clientId,clientName,sponsorId,sponsorName,defaultState,
-                defaultRemark,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
+                clientRete,defaultSeverity,defaultNotch,defaultCancel,defaultDelay, defaultRelate,defaultSubstitute,
                 defaultBankrupt,defaultExternal,startCreated,endCreated,startReviewed,endReviewed);
         return Results.newSuccessResult(result);
     }

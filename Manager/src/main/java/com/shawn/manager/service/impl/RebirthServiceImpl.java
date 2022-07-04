@@ -15,8 +15,8 @@ public class RebirthServiceImpl implements RebirthService {
     RebirthMapper rebirthMapper;
 
     @Override
-    public boolean addRebirth(String defaultId,int rebirthState,String rebirthRemark,int rebirthRelieve,
-                              int rebirthSettle, int rebirthChange,int rebirthReduce,int rebirthPay,int rebirthRepay) {
+    public boolean addRebirth(String defaultId,String rebirthState,String rebirthRemark,String rebirthRelieve,
+                              String rebirthSettle, String rebirthChange,String rebirthReduce,String rebirthPay,String rebirthRepay) {
         return rebirthMapper.addRebirth(defaultId, rebirthState, rebirthRemark, rebirthRelieve,
          rebirthSettle,  rebirthChange, rebirthReduce, rebirthPay, rebirthRepay);
     }
@@ -34,10 +34,10 @@ public class RebirthServiceImpl implements RebirthService {
 
 
     @Override
-    public List<Rebirth> queryRebirth(String rebirthId,String defaultId,int rebirthState,String rebirthRemark,int rebirthRelieve,
-                                      int rebirthSettle, int rebirthChange,int rebirthReduce,int rebirthPay,int rebirthRepay,
+    public List<Rebirth> queryRebirth(String rebirthId,String defaultId,String clientName,String rebirthState,String rebirthRemark,String rebirthRelieve,
+                                      String rebirthSettle, String rebirthChange,String rebirthReduce,String rebirthPay,String rebirthRepay,
                                       String startCreated, String endCreated) {
-        return rebirthMapper.queryRebirth( rebirthId, defaultId, rebirthState, rebirthRemark, rebirthRelieve,
+        return rebirthMapper.queryRebirth( rebirthId, defaultId, clientName, rebirthState, rebirthRemark, rebirthRelieve,
          rebirthSettle,  rebirthChange, rebirthReduce, rebirthPay, rebirthRepay,
          startCreated,  endCreated);
     }

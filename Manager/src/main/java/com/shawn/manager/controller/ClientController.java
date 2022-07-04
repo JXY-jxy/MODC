@@ -24,8 +24,8 @@ public class ClientController {
                                      @RequestParam(value = "clientIdCard")String clientIdCard,
                                      @RequestParam(value = "clientTel")String clientTel,
                                      @RequestParam(value ="clientEmail") String clientEmail,
-                                     @RequestParam(value ="clientState",defaultValue = "0") int clientState,
-                                     @RequestParam(value ="clientRete",defaultValue = "0") int clientRete
+                                     @RequestParam(value ="clientState",defaultValue = "0") String clientState,
+                                     @RequestParam(value ="clientRete",defaultValue = "0") String clientRete
                                      ){
 
         boolean result = clientService.addClient(clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
@@ -62,8 +62,8 @@ public class ClientController {
                                      @RequestParam(value ="clientEmail") String clientEmail,
                                      @RequestParam(value ="startTime") String startTime,
                                      @RequestParam(value ="endTime") String endTime,
-                                     @RequestParam(value ="clientState") int clientState,
-                                     @RequestParam(value ="clientRete") int clientRete
+                                     @RequestParam(value ="clientState") String clientState,
+                                     @RequestParam(value ="clientRete") String clientRete
                                      ){
         List<Client>  result = clientService.queryClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,startTime,endTime,clientState,clientRete);
         return Results.newSuccessResult(result);

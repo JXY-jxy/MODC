@@ -13,10 +13,10 @@ public interface RebirthMapper {
 
     //添加违约情况
     boolean addRebirth(@Param("defaultId")String defaultId,
-                       @Param("rebirthState")int rebirthState, @Param("rebirthRemark")String rebirthRemark,
-                       @Param("rebirthRelieve")int rebirthRelieve, @Param("rebirthSettle")int rebirthSettle,
-                       @Param("rebirthChange")int rebirthChange, @Param("rebirthReduce")int rebirthReduce,
-                       @Param("rebirthPay")int rebirthPay, @Param("rebirthRepay")int rebirthRepay
+                       @Param("rebirthState")String rebirthState, @Param("rebirthRemark")String rebirthRemark,
+                       @Param("rebirthRelieve")String rebirthRelieve, @Param("rebirthSettle")String rebirthSettle,
+                       @Param("rebirthChange")String rebirthChange, @Param("rebirthReduce")String rebirthReduce,
+                       @Param("rebirthPay")String rebirthPay, @Param("rebirthRepay")String rebirthRepay
                        );
 
     //更新审核状态 0不违约 1违约
@@ -24,12 +24,12 @@ public interface RebirthMapper {
 
     boolean updateRebirthStateToFail(@Param("rebirthId") String rebirthId);
 
-    //根据多重条件查询违约情况
-    List<Rebirth> queryRebirth(@Param("rebirthId")String rebirthId, @Param("defaultId")String defaultId,
-                               @Param("rebirthState")int rebirthState, @Param("rebirthRemark")String rebirthRemark,
-                               @Param("rebirthRelieve")int rebirthRelieve, @Param("rebirthSettle")int rebirthSettle,
-                               @Param("rebirthChange")int rebirthChange, @Param("rebirthReduce")int rebirthReduce,
-                               @Param("rebirthPay")int rebirthPay, @Param("rebirthRepay")int rebirthRepay,
+    //根据多重条件查询重生情况
+    List<Rebirth> queryRebirth(@Param("rebirthId")String rebirthId, @Param("defaultId")String defaultId,@Param("clientName")String clientName,
+                               @Param("rebirthState")String rebirthState, @Param("rebirthRemark")String rebirthRemark,
+                               @Param("rebirthRelieve")String rebirthRelieve, @Param("rebirthSettle")String rebirthSettle,
+                               @Param("rebirthChange")String rebirthChange, @Param("rebirthReduce")String rebirthReduce,
+                               @Param("rebirthPay")String rebirthPay, @Param("rebirthRepay")String rebirthRepay,
                                @Param("startCreated")String startCreated, @Param("endCreated") String endCreated
                             );
 

@@ -12,14 +12,14 @@ import java.util.Date;
 public class Rebirth {
     private String rebirthId;
     private String defaultId;
-    private int rebirthState;
+    private String rebirthState;
     private String rebirthRemark;
     private Date rebirthCreated;
-    private int rebirthRelieve;
-    private int rebirthSettle;
-    private int rebirthChange;
-    private int rebirthReduce;
-    private int rebirthPay;
-    private int rebirthRepay;
+    private String rebirthRelieve;
+    private String rebirthSettle;
+    private String rebirthChange;
+    private String rebirthReduce;
+    private String rebirthPay;
+    private String rebirthRepay;
 
 }

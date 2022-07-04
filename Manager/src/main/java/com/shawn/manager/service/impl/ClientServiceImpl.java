@@ -17,7 +17,7 @@ public class ClientServiceImpl implements ClientService {
     ClientMapper clientMapper;
 
     @Override
-    public boolean addClient(String clientName,String clientSex,String clientIdCard,String clientTel,String clientEmail,int clientState,int clientRete) {
+    public boolean addClient(String clientName,String clientSex,String clientIdCard,String clientTel,String clientEmail,String clientState,String clientRete) {
         return clientMapper.addClient(clientName,clientSex,clientIdCard,clientTel,clientEmail,clientState,clientRete);
     }
 
@@ -38,7 +38,7 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Override
-    public List<Client> queryClient(String clientId, String clientName, String clientSex, String clientIdCard, String clientTel, String clientEmail,String startTime,String endTime,int clientState,int clientRete) {
+    public List<Client> queryClient(String clientId, String clientName, String clientSex, String clientIdCard, String clientTel, String clientEmail,String startTime,String endTime,String clientState,String clientRete) {
         return clientMapper.queryClient(clientId,clientName,clientSex,clientIdCard,clientTel,clientEmail,startTime,endTime,clientState,clientRete);
     }
 

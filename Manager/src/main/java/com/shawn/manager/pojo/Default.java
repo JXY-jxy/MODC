@@ -16,16 +16,16 @@ public class Default {
     private String clientName;
     private String sponsorId;
     private String sponsorName;
-    private int defaultState;
+    private String defaultState;
     private String defaultRemark;
     private Date defaultCreated;
     private Date defaultReviewed;
-    private int defaultSeverity;
-    private int defaultNotch;
-    private int defaultCancel;
-    private int defaultDelay;
-    private int defaultRelate;
-    private int defaultSubstitute;
-    private int defaultBankrupt;
-    private int defaultExternal;
+    private String defaultSeverity;
+    private String defaultNotch;
+    private String defaultCancel;
+    private String defaultDelay;
+    private String defaultRelate;
+    private String defaultSubstitute;
+    private String defaultBankrupt;
+    private String defaultExternal;
 }

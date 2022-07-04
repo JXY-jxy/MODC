@@ -3,6 +3,7 @@ package com.shawn.manager.controller;
 import com.shawn.core.base.Result;
 import com.shawn.core.base.Results;
 import com.shawn.manager.pojo.Reviewer;
+import com.shawn.manager.pojo.Sponsor;
 import com.shawn.manager.service.impl.ReviewerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -59,9 +60,9 @@ public class ReviewerController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public Result<Boolean> loginReviewer( @RequestParam(value = "reviewerTel") String reviewerTel,
+    public Result<Reviewer> loginReviewer( @RequestParam(value = "reviewerTel") String reviewerTel,
                                   @RequestParam(value = "reviewerPwd")String reviewerPwd){
-        boolean result = reviewerService.login(reviewerTel,reviewerPwd);
+        Reviewer result = reviewerService.loginReviewer(reviewerTel,reviewerPwd);
         return Results.newSuccessResult(result);
     }
 

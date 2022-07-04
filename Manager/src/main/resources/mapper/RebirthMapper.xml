@@ -12,24 +12,25 @@
     </insert>
 
     <!--    更新审核状态为1-->
-    <update id="updateDefalutStateToPass" parameterType="com.shawn.manager.pojo.Rebirth">
+    <update id="updateRebirthStateToPass" parameterType="com.shawn.manager.pojo.Rebirth">
     update rebirthform set rebirthState=1
     where rebirthId=#{rebirthId};
     </update>
 
     <!--    更新审核状态为2-->
-    <update id="updateDefalutStateToFail" parameterType="com.shawn.manager.pojo.Rebirth">
+    <update id="updateRebirthStateToFail" parameterType="com.shawn.manager.pojo.Rebirth">
     update rebirthform set rebirthState=2
     where rebirthId=#{rebirthId};
     </update>
 
     <!--    根据多重条件查询违约情况-->
     <select id="queryRebirth" resultType="com.shawn.manager.pojo.Rebirth">
-        select * from rebirthform
+        select r.* from rebirthform r left join defaultform d on r.defaultId=d.defaultId
         <where>
             1=1
             <if test="rebirthId!=null and rebirthId!=''">and rebirthId = #{rebirthId} </if>
-            <if test="defaultId!=null and defaultId!=''"> and defaultId = #{defaultId}</if>
+            <if test="defaultId!=null and defaultId!=''"> and d.defaultId = #{defaultId}</if>
+            <if test="clientName!=null and clientName!=''"> and clientName = #{clientName}</if>
             <if test="rebirthState!=null and rebirthState!=''"> and rebirthState = #{rebirthState}</if>
             <if test="rebirthRemark!=null and rebirthRemark!=''"> and rebirthRemark = #{rebirthRemark}</if>
             <if test="rebirthRelieve!=null and rebirthRelieve!=''"> and rebirthRelieve = #{rebirthRelieve}</if>

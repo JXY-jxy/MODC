@@ -18,5 +18,5 @@ public interface ReviewerService {
     //查询所有客户
     List<Reviewer> queryAllReviewer();
 
-    boolean login(String reviewerTel,String reviewerPwd);
+    Reviewer loginReviewer(String reviewerTel,String reviewerPwd);
 }

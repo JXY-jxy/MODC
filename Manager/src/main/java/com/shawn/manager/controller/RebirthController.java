@@ -21,14 +21,14 @@ public class RebirthController {
     @RequestMapping(value="/addRebirth", method = RequestMethod.POST)
     public Result<Boolean> addRebirth(
                                       @RequestParam(value = "defaultId") String defaultId,
-                                      @RequestParam(value = "rebirthState",defaultValue = "0") int rebirthState,
+                                      @RequestParam(value = "rebirthState",defaultValue = "0") String rebirthState,
                                       @RequestParam(value = "rebirthRemark") String rebirthRemark,
-                                      @RequestParam(value = "rebirthRelieve",defaultValue = "0") int rebirthRelieve,
-                                      @RequestParam(value ="rebirthSettle",defaultValue = "0") int rebirthSettle,
-                                      @RequestParam(value ="rebirthChange",defaultValue = "0") int rebirthChange,
-                                      @RequestParam(value ="rebirthReduce",defaultValue = "0") int rebirthReduce,
-                                      @RequestParam(value ="rebirthPay",defaultValue = "0") int rebirthPay,
-                                      @RequestParam(value ="rebirthRepay",defaultValue = "0") int rebirthRepay
+                                      @RequestParam(value = "rebirthRelieve",defaultValue = "0") String rebirthRelieve,
+                                      @RequestParam(value ="rebirthSettle",defaultValue = "0") String rebirthSettle,
+                                      @RequestParam(value ="rebirthChange",defaultValue = "0") String rebirthChange,
+                                      @RequestParam(value ="rebirthReduce",defaultValue = "0") String rebirthReduce,
+                                      @RequestParam(value ="rebirthPay",defaultValue = "0") String rebirthPay,
+                                      @RequestParam(value ="rebirthRepay",defaultValue = "0") String rebirthRepay
     ){
 
         boolean result = rebirthService.addRebirth(defaultId, rebirthState, rebirthRemark, rebirthRelieve,
@@ -51,20 +51,21 @@ public class RebirthController {
 
     //多重条件查询
     @RequestMapping(value = "/queryRebirth",method = RequestMethod.GET)
-    public Result<List<Rebirth>> queryRebirth(@RequestParam(value ="rebirthId") String rebirthId,
+    public Result<List<Rebirth>> queryRebirth(@RequestParam(value = "rebirthId") String rebirthId,
                                               @RequestParam(value = "defaultId") String defaultId,
-                                              @RequestParam(value = "rebirthState",defaultValue = "0") int rebirthState,
+                                              @RequestParam(value = "clientName") String clientName,
+                                              @RequestParam(value = "rebirthState",defaultValue = "0") String rebirthState,
                                               @RequestParam(value = "rebirthRemark") String rebirthRemark,
-                                              @RequestParam(value = "rebirthRelieve",defaultValue = "0") int rebirthRelieve,
-                                              @RequestParam(value ="rebirthSettle",defaultValue = "0") int rebirthSettle,
-                                              @RequestParam(value ="rebirthChange",defaultValue = "0") int rebirthChange,
-                                              @RequestParam(value ="rebirthReduce",defaultValue = "0") int rebirthReduce,
-                                              @RequestParam(value ="rebirthPay",defaultValue = "0") int rebirthPay,
-                                              @RequestParam(value ="rebirthRepay",defaultValue = "0") int rebirthRepay,
-                                              @RequestParam(value ="startCreated")String startCreated,
-                                              @RequestParam(value ="endCreated") String endCreated
+                                              @RequestParam(value = "rebirthRelieve",defaultValue = "0") String rebirthRelieve,
+                                              @RequestParam(value = "rebirthSettle",defaultValue = "0") String rebirthSettle,
+                                              @RequestParam(value = "rebirthChange",defaultValue = "0") String rebirthChange,
+                                              @RequestParam(value = "rebirthReduce",defaultValue = "0") String rebirthReduce,
+                                              @RequestParam(value = "rebirthPay",defaultValue = "0") String rebirthPay,
+                                              @RequestParam(value = "rebirthRepay",defaultValue = "0") String rebirthRepay,
+                                              @RequestParam(value = "startCreated")String startCreated,
+                                              @RequestParam(value = "endCreated") String endCreated
     ){
-        List<Rebirth> result = rebirthService.queryRebirth(rebirthId, defaultId, rebirthState, rebirthRemark, rebirthRelieve,
+        List<Rebirth> result = rebirthService.queryRebirth(rebirthId, defaultId,clientName, rebirthState, rebirthRemark, rebirthRelieve,
                 rebirthSettle,  rebirthChange, rebirthReduce, rebirthPay, rebirthRepay,startCreated,endCreated);
         return Results.newSuccessResult(result);
     }
