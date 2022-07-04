@@ -13,13 +13,14 @@
               #{defaultSubstitute},#{defaultBankrupt},#{defaultExternal});
     </insert>
 
-    <!--    更新审核状态为1-->
+    <!--    更新审核状态为1，违约-->
     <update id="updateDefalutStateToPass" parameterType="com.shawn.manager.pojo.Default">
-    update defaultform set defaultState=1
+    update defaultform left join client on defaultform.clientId=client.clientId
+    set defaultState = 1 , clientState = 1
     where defaultId=#{defaultId};
     </update>
 
-    <!--    更新审核状态为2-->
+    <!--    更新审核状态为2，未通过，即不违约-->
     <update id="updateDefalutStateToFail" parameterType="com.shawn.manager.pojo.Default">
     update defaultform set defaultState=2
     where defaultId=#{defaultId};
