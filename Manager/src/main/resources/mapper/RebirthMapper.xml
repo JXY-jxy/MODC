@@ -13,7 +13,10 @@
 
     <!--    更新审核状态为1-->
     <update id="updateRebirthStateToPass" parameterType="com.shawn.manager.pojo.Rebirth">
-    update rebirthform set rebirthState=1
+    update rebirthform
+    left join defaultform on defaultform.defaultId=rebirthform.defaultId
+    left join client on defaultform.clientId=client.clientId
+    set rebirthState = 1 , clientState = 2
     where rebirthId=#{rebirthId};
     </update>
 
@@ -24,13 +27,15 @@
     </update>
 
     <!--    根据多重条件查询违约情况-->
-    <select id="queryRebirth" resultType="com.shawn.manager.pojo.Rebirth">
-        select r.* from rebirthform r left join defaultform d on r.defaultId=d.defaultId
+    <select id="queryRebirth" resultType="java.util.Map">
+        select  r.*,d.*,c.clientRete from rebirthform r
+        left join defaultform d on r.defaultId=d.defaultId
+        left join client c on c.clientId=d.clientId
         <where>
             1=1
             <if test="rebirthId!=null and rebirthId!=''">and rebirthId = #{rebirthId} </if>
             <if test="defaultId!=null and defaultId!=''"> and d.defaultId = #{defaultId}</if>
-            <if test="clientName!=null and clientName!=''"> and clientName = #{clientName}</if>
+            <if test="clientName!=null and clientName!=''"> and d.clientName = #{clientName}</if>
             <if test="rebirthState!=null and rebirthState!=''"> and rebirthState = #{rebirthState}</if>
             <if test="rebirthRemark!=null and rebirthRemark!=''"> and rebirthRemark = #{rebirthRemark}</if>
             <if test="rebirthRelieve!=null and rebirthRelieve!=''"> and rebirthRelieve = #{rebirthRelieve}</if>
@@ -43,9 +48,11 @@
         </where>
     </select>
 
-    <!--    查询所有客户-->
-    <select id="queryAllRebirth" resultType="com.shawn.manager.pojo.Rebirth">
-    select * from rebirthform
+    <!--    查询所有重生-->
+    <select id="queryAllRebirth" resultType="java.util.Map">
+    select r.*, d.*, c.clientRete from rebirthform r
+	left join defaultform d on r.defaultId=d.defaultId
+	left join client c on c.clientId=d.clientId
     </select>
 
 
