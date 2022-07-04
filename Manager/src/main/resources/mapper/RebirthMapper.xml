@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.shawn.manager.dao.RebirthMapper">
+
+    <!--提出违约申请-->
+    <insert id="addRebirth" parameterType="com.shawn.manager.pojo.Rebirth">
+      insert into rebirthform (defaultId,rebirthState,rebirthRemark,rebirthRelieve,rebirthSettle,
+      rebirthChange,rebirthReduce,rebirthPay,rebirthRepay)
+      values (#{defaultId},#{rebirthState},#{rebirthRemark},#{rebirthRelieve},
+      #{rebirthSettle},#{rebirthChange},#{rebirthReduce},#{rebirthPay},#{rebirthRepay});
+    </insert>
+
+    <!--    更新审核状态为1-->
+    <update id="updateDefalutStateToPass" parameterType="com.shawn.manager.pojo.Rebirth">
+    update rebirthform set rebirthState=1
+    where rebirthId=#{rebirthId};
+    </update>
+
+    <!--    更新审核状态为2-->
+    <update id="updateDefalutStateToFail" parameterType="com.shawn.manager.pojo.Rebirth">
+    update rebirthform set rebirthState=2
+    where rebirthId=#{rebirthId};
+    </update>
+
+    <!--    根据多重条件查询违约情况-->
+    <select id="queryRebirth" resultType="com.shawn.manager.pojo.Rebirth">
+        select * from rebirthform
+        <where>
+            1=1
+            <if test="rebirthId!=null and rebirthId!=''">and rebirthId = #{rebirthId} </if>
+            <if test="defaultId!=null and defaultId!=''"> and defaultId = #{defaultId}</if>
+            <if test="rebirthState!=null and rebirthState!=''"> and rebirthState = #{rebirthState}</if>
+            <if test="rebirthRemark!=null and rebirthRemark!=''"> and rebirthRemark = #{rebirthRemark}</if>
+            <if test="rebirthRelieve!=null and rebirthRelieve!=''"> and rebirthRelieve = #{rebirthRelieve}</if>
+            <if test="rebirthSettle!=null and rebirthSettle!=''"> and rebirthSettle = #{rebirthSettle}</if>
+            <if test="rebirthChange!=null and rebirthChange!=''">and rebirthChange = #{rebirthChange} </if>
+            <if test="rebirthReduce!=null and rebirthReduce!=''"> and rebirthReduce = #{rebirthReduce}</if>
+            <if test="rebirthPay!=null and rebirthPay!=''"> and rebirthPay = #{rebirthPay}</if>
+            <if test="rebirthRepay!=null and rebirthRepay!=''"> and rebirthRepay = #{rebirthRepay}</if>
+            <if test="startCreated!=null and startCreated!='' and endCreated!=null and endCreated!=''"> and Date(rebirthCreated) BETWEEN #{startCreated} AND #{endCreated}</if>
+        </where>
+    </select>
+
+    <!--    查询所有客户-->
+    <select id="queryAllRebirth" resultType="com.shawn.manager.pojo.Rebirth">
+    select * from rebirthform
+    </select>
+
+
+</mapper>
+
