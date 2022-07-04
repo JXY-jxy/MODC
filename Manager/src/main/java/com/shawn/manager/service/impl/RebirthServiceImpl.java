@@ -15,9 +15,9 @@ public class RebirthServiceImpl implements RebirthService {
     RebirthMapper rebirthMapper;
 
     @Override
-    public boolean addRebirth(String rebirthId,String defaultId,int rebirthState,String rebirthRemark,int rebirthRelieve,
+    public boolean addRebirth(String defaultId,int rebirthState,String rebirthRemark,int rebirthRelieve,
                               int rebirthSettle, int rebirthChange,int rebirthReduce,int rebirthPay,int rebirthRepay) {
-        return rebirthMapper.addRebirth( rebirthId, defaultId, rebirthState, rebirthRemark, rebirthRelieve,
+        return rebirthMapper.addRebirth(defaultId, rebirthState, rebirthRemark, rebirthRelieve,
          rebirthSettle,  rebirthChange, rebirthReduce, rebirthPay, rebirthRepay);
     }
 

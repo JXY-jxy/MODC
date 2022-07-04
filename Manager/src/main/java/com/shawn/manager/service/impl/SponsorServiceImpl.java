@@ -16,8 +16,8 @@ public class SponsorServiceImpl implements SponsorService {
     SponsorMapper sponsorMapper;
 
     @Override
-    public boolean addSponsor(String sponsorId,String sponsorName,String sponsorSex,String sponsorIdCard,String sponsorTel,String sponsorEmail) {
-        return sponsorMapper.addSponsor(sponsorId,sponsorName,sponsorSex,sponsorIdCard,sponsorTel,sponsorEmail);
+    public boolean addSponsor(String sponsorName,String sponsorSex,String sponsorIdCard,String sponsorTel,String sponsorEmail) {
+        return sponsorMapper.addSponsor(sponsorName,sponsorSex,sponsorIdCard,sponsorTel,sponsorEmail);
     }
 
     @Override

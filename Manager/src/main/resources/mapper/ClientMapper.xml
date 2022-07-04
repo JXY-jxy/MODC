@@ -5,8 +5,8 @@
 
     <!--添加客户-->
     <insert id="addClient" parameterType="com.shawn.manager.pojo.Client">
-      insert into client (clientId, clientName, clientSex, clientIdCard,clientTel,clientEmail,clientState,clientRete)
-      values (#{clientId},#{clientName},#{clientSex},#{clientIdCard},#{clientTel},#{clientEmail},#{clientState},#{clientRete});
+      insert into client ( clientName, clientSex, clientIdCard,clientTel,clientEmail,clientState,clientRete)
+      values (#{clientName},#{clientSex},#{clientIdCard},#{clientTel},#{clientEmail},#{clientState},#{clientRete});
     </insert>
 
     <!--    根据Id删除客户-->

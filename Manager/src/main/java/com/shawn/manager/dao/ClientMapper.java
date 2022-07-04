@@ -12,7 +12,7 @@ import java.util.List;
 public interface ClientMapper {
 
     //添加客户
-    boolean addClient(@Param("clientId")String clientId,@Param("clientName")String clientName,@Param("clientSex")String clientSex,
+    boolean addClient(@Param("clientName")String clientName,@Param("clientSex")String clientSex,
                       @Param("clientIdCard")String clientIdCard, @Param("clientTel") String clientTel,@Param("clientEmail")String clientEmail,
                       @Param("clientState")int clientState,@Param("clientRete")int clientRete);
 

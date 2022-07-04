@@ -5,8 +5,8 @@
 
     <!--添加客户-->
     <insert id="addReviewer" parameterType="com.shawn.manager.pojo.Reviewer">
-      insert into reviewer (reviewerId, reviewerName, reviewerSex, reviewerIdCard,reviewerTel,reviewerEmail)
-      values (#{reviewerId},#{reviewerName},#{reviewerSex},#{reviewerIdCard},#{reviewerTel},#{reviewerEmail});
+      insert into reviewer (reviewerName, reviewerSex, reviewerIdCard,reviewerTel,reviewerEmail)
+      values (#{reviewerName},#{reviewerSex},#{reviewerIdCard},#{reviewerTel},#{reviewerEmail});
     </insert>
 
     <!--    根据Id删除客户-->

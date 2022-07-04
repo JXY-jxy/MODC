@@ -12,7 +12,7 @@ import java.util.List;
 public interface DefaultMapper {
 
     //添加违约情况
-    boolean addDefault(@Param("defaultId")String defaultId, @Param("clientId")String clientId, @Param("clientName")String clientName,
+    boolean addDefault(@Param("clientId")String clientId, @Param("clientName")String clientName,
                        @Param("sponsorId")String sponsorId, @Param("sponsorName")String sponsorName, @Param("defaultState")int defaultState,
                        @Param("defaultRemark")String defaultRemark, @Param("defaultSeverity")int defaultSeverity, @Param("defaultNotch")int defaultNotch,
                        @Param("defaultCancel")int defaultCancel, @Param("defaultDelay")int defaultDelay,

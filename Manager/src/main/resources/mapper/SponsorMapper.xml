@@ -5,8 +5,8 @@
 
     <!--添加客户-->
     <insert id="addSponsor" parameterType="com.shawn.manager.pojo.Sponsor">
-      insert into sponsor (sponsorId, sponsorName, sponsorSex, sponsorIdCard,sponsorTel,sponsorEmail)
-      values (#{sponsorId},#{sponsorName},#{sponsorSex},#{sponsorIdCard},#{sponsorTel},#{sponsorEmail});
+      insert into sponsor (sponsorName, sponsorSex, sponsorIdCard,sponsorTel,sponsorEmail)
+      values (#{sponsorName},#{sponsorSex},#{sponsorIdCard},#{sponsorTel},#{sponsorEmail});
     </insert>
 
     <!--    根据Id删除客户-->

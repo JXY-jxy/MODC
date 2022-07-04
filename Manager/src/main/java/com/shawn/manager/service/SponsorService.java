@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SponsorService {
     //添加客户
-    boolean addSponsor(String sponsorId,String sponsorName,String sponsorSex,String sponsorIdCard,String sponsorTel,String sponsorEmail);
+    boolean addSponsor(String sponsorName,String sponsorSex,String sponsorIdCard,String sponsorTel,String sponsorEmail);
 
     //根据Id删除客户
     boolean deleteSponsorById(String sponsorId);

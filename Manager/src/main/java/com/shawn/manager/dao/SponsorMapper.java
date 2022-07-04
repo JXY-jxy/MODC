@@ -12,7 +12,7 @@ import java.util.List;
 public interface SponsorMapper {
 
     //添加客户
-    boolean addSponsor(@Param("sponsorId")String sponsorId,@Param("sponsorName")String sponsorName,@Param("sponsorSex")String sponsorSex,
+    boolean addSponsor(@Param("sponsorName")String sponsorName,@Param("sponsorSex")String sponsorSex,
                       @Param("sponsorIdCard")String sponsorIdCard, @Param("sponsorTel") String sponsorTel,@Param("sponsorEmail")String sponsorEmail);
 
     //根据Id删除客户
